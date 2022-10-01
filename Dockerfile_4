@@ -10,22 +10,22 @@ RUN yum install java-11-openjdk -y
 
 RUN yum install wget -y
 
-RUN yum install unzip -y
-
 RUN yum install tar -y
 
-#RUN mkdir /opt
+RUN mkdir /opt/tomcat/
 
-WORKDIR /opt
+WORKDIR /opt/tomcat
 
-RUN curl -O https://github.com/wildfly/wildfly/releases/download/26.1.2.Final/wildfly-26.1.2.Final.zip
+RUN curl -O https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.67/bin/apache-tomcat-9.0.67.tar.gz
 
-RUN unzip wildfly-26.1.2.Final.zip
+RUN tar -xvf apache-tomcat-9.0.67.tar.gz
 
-WORKDIR /opt/wildfly-26.1.2.Final/standalone/deployments/
+RUN mv apache-tomcat-9.0.67/* /opt/tomcat/.
+
+WORKDIR /opt/tomcat/webapps
 
 RUN curl -O -L https://github.com/AKSarav/SampleWebApp/raw/master/dist/SampleWebApp.war
 
 EXPOSE 8080
 
-CMD ["/opt/wildfly-26.1.2.Final/bin/standalone.sh", "run"]
+CMD ["/opt/tomcat/bin/catalina.sh", "run"]
