@@ -14,7 +14,7 @@ RUN yum install unzip -y
 
 RUN yum install tar -y
 
-COPY . /opt/.
+COPY wildfly1 /opt/.
 #RUN mkdir /opt
 
 #WORKDIR /opt
