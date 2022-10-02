@@ -27,6 +27,6 @@ COPY . /opt/.
 
 #RUN curl -O -L https://github.com/AKSarav/SampleWebApp/raw/master/dist/SampleWebApp.war
 
-EXPOSE 9090
+EXPOSE 8080
 
-CMD ["/opt/wildfly/bin/standalone.sh", "-b", "0.0.0.0"]
+CMD ["sh -x /opt/wildfly/bin/standalone.sh -b 0.0.0.0 > /dev/null &", "run"]
