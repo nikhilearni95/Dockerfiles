@@ -1,1 +1,5 @@
 docker run -itd --name tomcatcontainer1 -p Port u want to expose to:original_port(or port in dockerfile) 5e842d852ef6
+
+cat ~/Dockerfiles/my_password.txt | docker login --username nikhilearni95 --password-stdin
+
+docker built -t username/reponame:tagname (path of Dockerfile)
