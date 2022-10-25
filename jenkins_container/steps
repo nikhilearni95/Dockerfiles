@@ -1,0 +1,21 @@
+STEPS TO START A JENKINS FUNCTIONAL CONTAINER
+
+docker build -t centos:jenkins .
+
+docker run -it --name jenkins_container_4 -p 8080:8080 b5893784640f
+
+after logging into the container 
+
+go to path where jenkins.war is available
+
+cd /usr/share/java/
+
+run the below command
+
+java -jar jenkins.war
+
+first time copy the password and save it for the first time login
+
+ctrl+pq to come out of the container without stoping the jenkins service
+
+
